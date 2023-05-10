@@ -8,6 +8,12 @@ $lightgreen : #b9e7e7;
         width: 1024px;
         //LOGIN & REGISTER
 
+        .links{
+            text-decoration: none;
+            color: inherit;
+
+        }
+
         .auth{
             display: flex;
             flex-direction: column;
@@ -67,7 +73,9 @@ $lightgreen : #b9e7e7;
                 padding: 10px 0px;
                 display: flex;
                 justify-content: space-between;
-                .logo{}
+                .logo{
+                    
+                }
                 .links{}
             }
         }
