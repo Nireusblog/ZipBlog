@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const posts = [
@@ -32,7 +32,7 @@ export const Home = () => {
     <div className="home">
       <div className="posts">
       {posts.map((post) => (
-          <div className="post" key={posts.id}>
+          <div className="post" key={post.id}>
           <div className="img">
             <img src={post.img} alt=""/> 
           </div>
