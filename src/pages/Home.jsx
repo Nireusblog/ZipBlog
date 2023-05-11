@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import { Link } from "react-router-dom";
 
 export const Home = () => {
@@ -39,9 +39,9 @@ export const Home = () => {
           <div className="content">
             <Link to={`/post/${post.id}`}>
             <h1>{post.title}</h1>
+            </Link>
             <p>{post.desc}</p>
             <button>Read More</button>
-            </Link>
           </div>
           </div>
         ))}
