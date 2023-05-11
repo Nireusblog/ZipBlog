@@ -146,8 +146,24 @@ $lightgreen : #b9e7e7;
                         display: flex;
                         gap: 100px;
 
+                        &:nth-child(2n+1){
+                            flex-direction: row-reverse;
+                        }
+
                         .img{
                             flex: 2;
+                            position: relative;
+
+                            &::after{
+                                content: "";
+                                width: 100%;
+                                height: 100%;
+                                background-color: $lightgreen;
+                                position: absolute;
+                                top: 20px;
+                                left: -20px;
+                                z-index: -1;
+                            }
                             
 
                             img{
