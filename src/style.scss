@@ -92,7 +92,7 @@ $lightgreen : #b9e7e7;
                         cursor: pointer;
                     }
 
-                    .write{
+                    .write {
                         background-color: $lightgreen;
                         width: 50px;
                         height: 50px;
@@ -103,7 +103,7 @@ $lightgreen : #b9e7e7;
                         font-weight: 300;
                         border: 1px solid white;
 
-                        &:hover{
+                        &:hover {
                             width: 48px;
                             height: 48px;
                             color: teal;
@@ -162,6 +162,18 @@ $lightgreen : #b9e7e7;
                             display: flex;
                             flex-direction: column;
                             justify-content: space-between;
+
+                            h1{
+                                font-size: 48px;
+                            }
+                            
+                            p{
+                                font-size: 18px;
+                            }
+
+                            button{
+                                width: max-content;
+                            }
                         }
                     }
                 }
