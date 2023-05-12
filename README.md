@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Technical Design Document: Blog Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The Blog Application is a web application designed to allow users to create and view blog posts. The application consists of a front-end user interface built using HTML, CSS, and JavaScript, and a back-end server built using Java and the Spring Boot framework. The server-side application stores data in a MySQL database.
 
-## Available Scripts
+## Architecture
+The Blog Application follows the Model-View-Controller (MVC) architecture pattern. The Model layer consists of a MySQL database, which stores blog post data. The View layer is built using HTML, CSS, and JavaScript, and is responsible for rendering the user interface. The Controller layer is implemented using the Spring Boot framework, and provides the application's business logic and RESTful API endpoints.
 
-In the project directory, you can run:
+## Database Schema
+The MySQL database consists of two tables: `blog_post` and `blog_tag`. The `blog_post` table stores information about each blog post, including the post's ID, title, content, author, and creation date. The `blog_tag` table stores information about each blog tag, including the tag's ID and name. A many-to-many relationship is maintained between the `blog_post` and `blog_tag` tables using a junction table named `blog_post_tag`.
 
-### `npm start`
+## API Endpoints
+The following RESTful API endpoints are provided by the Controller layer:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- `GET /posts`: Returns a list of all blog posts.
+- `GET /posts/{id}`: Returns details of a specific blog post.
+- `GET /tags`: Returns a list of all blog tags.
+- `GET /tags/{id}/posts`: Returns a list of all blog posts with a specific tag.
+- `POST /posts`: Creates a new blog post.
+- `PUT /posts/{id}`: Updates details of a specific blog post.
+- `DELETE /posts/{id}`: Deletes a specific blog post.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Front-End Implementation
+The front-end user interface is built using HTML, CSS, and JavaScript. The UI includes a navigation bar, which allows users to filter blog posts by tag, a section for displaying blog post previews, and a section for displaying individual blog posts. Users can create new blog posts using a form that includes fields for entering a post's title, content, and tags. Users can also upload images to include in their blog posts.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Conclusion
+The Blog Application provides users with a platform for creating and viewing blog posts. The application is built using a modern, scalable architecture and provides a clean, easy-to-use user interface. The application's RESTful API endpoints allow for easy integration with third-party tools and services.
