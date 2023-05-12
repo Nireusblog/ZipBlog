@@ -10,8 +10,8 @@ export const Write = () => {
     <div className='add' >
       <div className="content">
         <input type="text" placeholder='Title'/>
-        <div className="editorcontainer">
-        <ReactQuill theme="snow" value={value} onChange={setValue} />
+        <div className="editorContainer">
+        <ReactQuill className="editor" theme="snow" value={value} onChange={setValue} />
         
         </div>
       </div>
@@ -34,16 +34,27 @@ export const Write = () => {
         </div>
         <div className="item">
           <h1>Tag</h1>
-          <input type="radio" name="cat"  value="art" id = "art"/>
-          <label htmlFor="art">Art</label>
-          <input type="radio" name="cat"  value="science" id = "science"/>
-          <label htmlFor="science">Science</label>
-          <input type="radio" name="cat"  value="technology" id = "technology"/>
-          <label htmlFor="technology">Technology</label>
-          <input type="radio" name="cat"  value="cinema" id = "cinema"/>
-          <label htmlFor="cinema">Cinema</label>
-          <input type="radio" name="cat"  value="food" id = "food"/>
-          <label htmlFor="food">Food</label>
+          <div>
+              <input type="radio" name="cat" value="art" id="art" />
+              <label htmlFor="art">Art</label>
+            </div>
+            <div>
+              <input type="radio" name="cat" value="science" id="science" />
+
+              <label htmlFor="science">Science</label>
+            </div>
+            <div>
+              <input type="radio" name="cat" value="technology" id="technology" />
+              <label htmlFor="technology">Technology</label>
+            </div>
+            <div>
+              <input type="radio" name="cat" value="cinema" id="cinema"/>
+              <label htmlFor="cinema">Cinema</label>
+            </div>
+            <div>
+              <input type="radio" name="cat" value="food" id="food" />
+              <label htmlFor="food">Food</label>
+            </div>
         </div>
       </div>
     </div>
