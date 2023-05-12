@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import  Logo  from "../img/logo.png"
 
  export const Navbar = () => {
@@ -31,7 +31,7 @@ import  Logo  from "../img/logo.png"
         <Link className="link" to="/?cat=food">
           <h6>FOOD</h6>
         </Link>
-        <span>John</span>
+        <span>Username</span>
         <span>Logout</span>
         <span className="write">
         <Link className ="link" to ="/write">
