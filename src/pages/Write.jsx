@@ -26,7 +26,7 @@ export const Write = () => {
             <b>Visibility: </b> Public
           </span>
           <input style ={{display: "none"}} type ="file" id="file" name="" />
-          <label htmlFor="file">Upload Image</label>
+          <label className= "file" htmlFor="file">Upload Image</label>
           <div className="buttons">
             <button>Save as a Draft</button>
             <button>Update</button>
