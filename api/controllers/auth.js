@@ -16,14 +16,14 @@ export const register = (req, res)=>{
         const hash = bcrypt.hashSync(req.body.password, salt);
 
 
-        const q = 'INSERT INTO blog.users(username, email, password) VALUEs (?,?,?)'
+        const q = 'INSERT INTO blog.users(username, email, password) VALUES (?,?,?)'
         const values = [
             req.body.username,        
             req.body.email,       
             hash,
         ]
         
-        db.query('INSERT INTO blog.users(username, email, password) VALUEs (?,?,?)',[req.body.username,req.body.email,hash] ,(err,data)=>{
+        db.query('INSERT INTO blog.users(username, email, password) VALUES (?,?,?)',[req.body.username,req.body.email,hash] ,(err,data)=>{
             if(err) return res.json(err);
             return res.status(200).json("User has been created.");
         });
