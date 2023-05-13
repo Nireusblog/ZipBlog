@@ -17,7 +17,7 @@ export const Home = () => {
         }
       };
       fetchData();
-    })
+    },[tag]);
   // const posts = [
   //   {
   //     id: 1,
