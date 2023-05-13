@@ -11,8 +11,9 @@ public class Start {
         ProcessBuilder processBuilder = new ProcessBuilder("npm", "start");
         processBuilder.directory(new File(currentWorkingDirectory));
         try {
-            processBuilder.start();
-        } catch (IOException e) {
+            Process process = processBuilder.start();
+            process.waitFor(); // Wait for the process to complete
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
 
@@ -20,8 +21,9 @@ public class Start {
         processBuilder = new ProcessBuilder("npm", "start");
         processBuilder.directory(new File(currentWorkingDirectory + "/api"));
         try {
-            processBuilder.start();
-        } catch (IOException e) {
+            Process process = processBuilder.start();
+            process.waitFor(); // Wait for the process to complete
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }
