@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Delete from "../img/delete.png"
-import Edit from "../img/edit.png"
-import {Link, useLocation, useNavigate} from "react-router-dom"
-import Menu from '../components/Menu'
-import axios from 'axios'
-import moment from 'moment'
-import { AuthContext } from '../context/authContext'
+import React, { useContext, useEffect, useState } from "react";
+import Delete from "../img/delete.png";
+import Edit from "../img/edit.png";
+import {Link, useLocation, useNavigate} from "react-router-dom";
+import Menu from "../components/Menu";
+import axios from "axios";
+import moment from "moment";
+import { AuthContext } from "../context/authContext";
 
 export const Single = () => {
   const [post,setPost] = useState({});
@@ -61,7 +61,7 @@ export const Single = () => {
     <h1>{post.title}</h1>
     {post.desc}
     </div>
-    <Menu />
+    <Menu tag={post.tag}/>
     </div>
   )
 };
