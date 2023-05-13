@@ -37,7 +37,7 @@ export const Register = () => {
         <input required type="email" placeholder='email' name='email' onChange={handleChange}/>
         <button onClick={handleSubmit}>Register</button>
         <p>This is an error!</p>
-        <span>Don you have an account? <Link to = "/login">Login</Link>
+        <span>Do you have an account? <Link to = "/login">Login</Link>
 
         </span>
       </form> 
