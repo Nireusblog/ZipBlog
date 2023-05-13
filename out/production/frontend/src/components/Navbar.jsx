@@ -1,11 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import  Logo  from "../img/logo.png"
-import { AuthContext } from '../context/authContext';
 
  export const Navbar = () => {
-
-  const { currentUser, logout } = useContext(AuthContext);
 
   return (
     <div className="navbar">
@@ -16,27 +13,26 @@ import { AuthContext } from '../context/authContext';
           </Link>
           </div>
         <div className="links"></div>
-        <Link className="link" to="/?tag=art">
+        <Link className="link" to="/?cat=art">
           <h6>ART</h6>
         </Link>
-        <Link className='link' to="/?tag=science">
+        <Link className='link' to="/?cat=science">
           <h6>SCIENCE</h6>
         </Link>
-        <Link className="link" to="/?tag=technology">
+        <Link className="link" to="/?cat=technology">
           <h6>TECHNOLOGY</h6>
         </Link>
-        <Link className="link" to="/?tag=cinema">
+        <Link className="link" to="/?cat=cinema">
           <h6>CINEMA</h6>
         </Link>
-        <Link className="link" to="/?tag=design">
+        <Link className="link" to="/?cat=design">
           <h6>DESIGN</h6>
         </Link>
-        <Link className="link" to="/?tag=food">
+        <Link className="link" to="/?cat=food">
           <h6>FOOD</h6>
         </Link>
-        <span>{currentUser?.username}</span>
-        {currentUser ? (<span onClick={logout}>Logout</span>)
-         : (<Link className="link" to="/login">Login</Link>)}
+        <span>Username</span>
+        <span>Logout</span>
         <span className="write">
         <Link className ="link" to ="/write">
           Write</Link>
