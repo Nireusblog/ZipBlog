@@ -11,7 +11,6 @@ export const Single = () => {
   const [post,setPost] = useState({});
 
     const location = useLocation();
-
     const navigate = useNavigate(); 
 
     const postId = location.pathname.split("/")[2];
@@ -34,11 +33,8 @@ export const Single = () => {
       try {
         await axios.delete(`/posts/${postId}`);
         navigate("/")
-        const res = await axios.delete(`/posts/${postId}`);
-        setPost(res.data);
       } catch (err) {
         console.log(err);
-        
       }
     }
 
@@ -48,8 +44,7 @@ export const Single = () => {
       <div className="content">
       <img src={post?.img} alt="" />
       <div className="user">
-      {post.userImg && 
-      <img 
+      {post.userImg && <img 
       src={post.userImg} 
       alt="" />}
       <div className="info">
