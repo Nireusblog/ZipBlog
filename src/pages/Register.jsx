@@ -11,6 +11,8 @@ export const Register = () => {
   })
 
   const [err,setError] = useState(null);
+
+  const navigate = useNavigate() 
   
 
   const handleChange = e =>{
@@ -21,8 +23,8 @@ export const Register = () => {
  const handleSubmit = async e =>{
   e.preventDefault()
   try {
-    const res = await axios.post("/auth/register", inputs);
-    console.log(res)
+    await axios.post("/auth/register", inputs);
+    navigate("/login"); 
   } catch (err) {
     setError(err.response.data);
   }
