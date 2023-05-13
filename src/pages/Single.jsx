@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Delete from "../img/delete.png"
 import Edit from "../img/edit.png"
 import {Link, useLocation} from "react-router-dom"
 import Menu from '../components/Menu'
 import axios from 'axios'
 import moment from 'moment'
+import { AuthContext } from '../context/authContext'
 
 export const Single = () => {
   const [post,setPost] = useState({});
@@ -12,6 +13,8 @@ export const Single = () => {
     const location = useLocation();
 
     const postId = location.pathname.split("/")[2];
+
+    const {currentUser} = useContext(AuthContext)
 
     useEffect(()=>{
       const fetchData = async ()=>{
@@ -25,30 +28,42 @@ export const Single = () => {
       fetchData();
     },[postId]);
 
+    const handleDelete = async ()=>{
+      try {
+        await axios.delete(`/posts/${postId}`);
+        
+        const res = await axios.delete(`/posts/${postId}`);
+        setPost(res.data);
+      } catch (err) {
+        console.log(err);
+        
+      }
+    }
+
 
   return (
     <div className='single'>
       <div className="content">
       <img src={post?.img} alt="" />
       <div className="user">
-      <img src="https://images.pexels.com/photos/6489663/pexels-photo-6489663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" />
+      {post.userImg && <img src={post.userImg} alt="" />}
       <div className="info">
         <span>{post.username}</span>
-        <p>Posted {moment(post.date).fromNow}</p>
+        <p>Posted {moment(post.date).fromNow()}</p>
         </div>
-      <div className="edit">
+      {currentUser.username === post.username &&<div className="edit">
         <Link to={`/write?edit=2`}>
         <img src={Edit} alt="" />
         </Link>
-        <img src={Delete} alt="" />
+        <img onClick={handleDelete} src={Delete} alt="" />
+    </div>}
     </div>
-    </div>
-    <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h1>{post.title}</h1>
+    {post.desc}
     </div>
     <Menu />
     </div>
   )
-}
+};
 
 export default Single
