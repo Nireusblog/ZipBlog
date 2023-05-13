@@ -1,14 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Home = () => {
     const [posts,setPosts] = useState([]);
 
+    const tag = useLocation().search
+
     useEffect(()=>{
       const fetchData = async ()=>{
         try {
-          const res = await axios.get("/posts")
+          const res = await axios.get(`/posts${tag}`)
           setPosts(res.data)
         } catch (err) {
           console.log(err)
@@ -51,11 +53,11 @@ export const Home = () => {
             <img src={post.img} alt=""/> 
           </div>
           <div className="content">
-            <Link to={`/post/${post.id}`}>
             <h1>{post.title}</h1>
-            </Link>
             <p>{post.desc}</p>
+            <Link to={`/post/${post.id}`}>
             <button>Read More</button>
+            </Link>
           </div>
           </div>
         ))}
