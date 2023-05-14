@@ -87,20 +87,37 @@ export const Write = () => {
         <div className="item">
           <h1>Tag</h1>
           <div>
-              <input type="radio" checked={tag === "art"} name="tag" value="art" id="art" onChange={(e)=>setTag(e.target.value)} />
+              <input type="radio" 
+              checked={tag === "art"} 
+              name="tag" 
+              value="art" 
+              id="art" 
+              onChange={(e)=>setTag(e.target.value)} />
               <label htmlFor="art">Art</label>
             </div>
             <div>
-              <input type="radio" checked={tag === "science"} name="tag" value="science" id="science" onChange={(e)=>setTag(e.target.value)}/>
-
+              <input type="radio" 
+              checked={tag === "science"} 
+              name="tag" 
+              value="science" 
+              id="science" 
+              onChange={(e)=>setTag(e.target.value)}/>
               <label htmlFor="science">Science</label>
             </div>
             <div>
-              <input type="radio" checked={tag === "technology"} name="tag" value="technology" id="technology" onChange={(e)=>setTag(e.target.value)}/>
+              <input type="radio" 
+              checked={tag === "technology"} 
+              name="tag" value="technology" 
+              id="technology" 
+              onChange={(e)=>setTag(e.target.value)}/>
               <label htmlFor="technology">Technology</label>
             </div>
             <div>
-              <input type="radio" checked={tag === "cinema"} name="tag" value="cinema" id="cinema" onChange={(e)=>setTag(e.target.value)}/>
+              <input type="radio" 
+              checked={tag === "cinema"} 
+              name="tag" value="cinema" 
+              id="cinema" 
+              onChange={(e)=>setTag(e.target.value)}/>
               <label htmlFor="cinema">Cinema</label>
             </div>
             <div>
@@ -115,7 +132,7 @@ export const Write = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Write
+export default Write; 

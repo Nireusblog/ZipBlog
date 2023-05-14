@@ -15,15 +15,15 @@ export const Single = () => {
 
     const postId = location.pathname.split("/")[2];
 
-    const {currentUser} = useContext(AuthContext)
+    const {currentUser} = useContext(AuthContext);
 
     useEffect(()=>{
       const fetchData = async ()=>{
         try {
           const res = await axios.get(`/posts/${postId}`)
-          setPost(res.data)
+          setPost(res.data);
         } catch (err) {
-          console.log(err)
+          console.log(err);
         }
       };
       fetchData();
@@ -66,4 +66,4 @@ export const Single = () => {
   )
 };
 
-export default Single
+export default Single;
