@@ -1,17 +1,42 @@
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import axios from "axios"; 
 
 export const Write = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(""); 
+  const [title, setTitle] = useState(""); 
+  const [file, setFile] = useState(null); 
+  const [tag, setTag] = useState(""); 
+
+  const upload = async ()=>{
+    try{
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await axios.post("/upload", formData)
+      console.log(res.data)
+    }catch(err){
+      console.log(err);
+    }
+  }
+
+  const handleClick = async e=>{
+    e.preventDefault()
+    upload()
+  }
+
 
   console.log(value)
   return (
     <div className='add' >
       <div className="content">
-        <input type="text" placeholder='Title'/>
+        <input type="text" placeholder='Title' onChange={e=>setTitle(e.target.value)}/>
         <div className="editorContainer">
-        <ReactQuill className="editor" theme="snow" value={value} onChange={setValue} />
+        <ReactQuill 
+        className="editor" 
+        theme="snow" 
+        value={value} 
+        onChange={setValue} />
         
         </div>
       </div>
@@ -25,34 +50,34 @@ export const Write = () => {
           <span>
             <b>Visibility: </b> Public
           </span>
-          <input style ={{display: "none"}} type ="file" id="file" name="" />
+          <input style ={{display: "none"}} type ="file" id="file" name="" onChange={e=>setFile(e.target.files[0])}/>
           <label className= "file" htmlFor="file">Upload Image</label>
           <div className="buttons">
             <button>Save as a Draft</button>
-            <button>Update</button>
+            <button onClick={handleClick}>Publish</button>
           </div>
         </div>
         <div className="item">
           <h1>Tag</h1>
           <div>
-              <input type="radio" name="cat" value="art" id="art" />
+              <input type="radio" name="tag" value="art" id="art" onChange={e=>setTag(e.target.files[0])} />
               <label htmlFor="art">Art</label>
             </div>
             <div>
-              <input type="radio" name="cat" value="science" id="science" />
+              <input type="radio" name="tag" value="science" id="science" onChange={e=>setTag(e.target.files[0])}/>
 
               <label htmlFor="science">Science</label>
             </div>
             <div>
-              <input type="radio" name="cat" value="technology" id="technology" />
+              <input type="radio" name="tag" value="technology" id="technology" onChange={e=>setTag(e.target.files[0])}/>
               <label htmlFor="technology">Technology</label>
             </div>
             <div>
-              <input type="radio" name="cat" value="cinema" id="cinema"/>
+              <input type="radio" name="tag" value="cinema" id="cinema" onChange={e=>setTag(e.target.files[0])}/>
               <label htmlFor="cinema">Cinema</label>
             </div>
             <div>
-              <input type="radio" name="cat" value="food" id="food" />
+              <input type="radio" name="tag" value="food" id="food" onChange={e=>setTag(e.target.files[0])}/>
               <label htmlFor="food">Food</label>
             </div>
         </div>
