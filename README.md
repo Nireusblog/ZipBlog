@@ -1,13 +1,13 @@
 # Technical Design Document: Blog Application
 
 ## Overview
-The Blog Application is a web application designed to allow users to create and view blog posts. The application consists of a front-end user interface built using HTML, CSS, and JavaScript, and a back-end server built using Java and the Spring Boot framework. The server-side application stores data in a MySQL database.
+The Blog Application is a web application designed to allow users to create and view blog posts. The application consists of a front-end user interface built using HTML, CSS, and JavaScript, and a back-end server built using Node JavaScript framework. The server-side application stores data in a MySQL database.
 
 ## Architecture
-The Blog Application follows the Model-View-Controller (MVC) architecture pattern. The Model layer consists of a MySQL database, which stores blog post data. The View layer is built using HTML, CSS, and REACT JavaScript, and is responsible for rendering the user interface. The Controller layer is implemented using the Spring Boot framework, and provides the application's business logic and RESTful API endpoints.
+The Blog Application follows the Model-View-Controller (MVC) architecture pattern. The Model layer consists of a MySQL database, which stores blog post data. The View layer is built using HTML, CSS, and REACT JavaScript, and is responsible for rendering the user interface. The Controller layer is implemented using the Node JavaScript, and provides the application's business logic and RESTful API endpoints.
 
 ## Database Schema
-The MySQL database consists of two tables: `blog_post` and `blog_tag`. The `blog_post` table stores information about each blog post, including the post's ID, title, content, author, and creation date. The `blog_tag` table stores information about each blog tag, including the tag's ID and name. A many-to-many relationship is maintained between the `blog_post` and `blog_tag` tables using a junction table named `blog_post_tag`.
+The MySQL database consists of two tables: `blog_post` and `blog_users`. The `blog_post` table stores information about each blog post, including the post's ID, title, content, author, tag, and creation date. The `blog_users` table stores information about each user account, including the users's ID, username, encrypted password, and email address. A many-to-many relationship is maintained between the `blog_post` and `blog_users` tables using a junction table named `blog_post_users`.
 
 ## API Endpoints
 The following RESTful API endpoints are provided by the Controller layer:
