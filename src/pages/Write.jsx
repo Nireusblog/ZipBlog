@@ -128,6 +128,14 @@ export const Write = () => {
               id="food" 
               onChange={(e)=>setTag(e.target.value)}/>
               <label htmlFor="food">Food</label>
+            </div><div>
+              <input type="radio" 
+              checked={tag === "design"} 
+              name="tag" 
+              value="design" 
+              id="design" 
+              onChange={(e)=>setTag(e.target.value)}/>
+              <label htmlFor="design">Design</label>
             </div>
         </div>
       </div>
