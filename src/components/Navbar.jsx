@@ -17,22 +17,22 @@ import { AuthContext } from '../context/authContext';
           </div>
         <div className="links"></div>
         <Link className="link" to="/?tag=art">
-          <h6>ART</h6>
+          <h3>ART</h3>
         </Link>
         <Link className='link' to="/?tag=science">
-          <h6>SCIENCE</h6>
+          <h3>SCIENCE</h3>
         </Link>
         <Link className="link" to="/?tag=technology">
-          <h6>TECHNOLOGY</h6>
+          <h3>TECHNOLOGY</h3>
         </Link>
         <Link className="link" to="/?tag=cinema">
-          <h6>CINEMA</h6>
+          <h3>CINEMA</h3>
         </Link>
         <Link className="link" to="/?tag=design">
-          <h6>DESIGN</h6>
+          <h3>DESIGN</h3>
         </Link>
         <Link className="link" to="/?tag=food">
-          <h6>FOOD</h6>
+          <h3>FOOD</h3>
         </Link>
         <span>{currentUser?.username}</span>
         {currentUser ? (<span onClick={logout}>Logout</span>)

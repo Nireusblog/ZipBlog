@@ -76,7 +76,7 @@ $lightgreen : #b9e7e7;
                 justify-content: space-between;
                 .logo{
                     img{
-                        width: 120px;
+                        width: 200px;
                     }
                 }
                 .links{
@@ -95,13 +95,14 @@ $lightgreen : #b9e7e7;
                     .write {
                         background-color: $lightgreen;
                         width: 50px;
-                        height: 50px;
+                        height: 50x;
                         border-radius: 50%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
                         font-weight: 300;
                         border: 1px solid white;
+                        font-size: 30px;
 
                         &:hover {
                             width: 48px;
@@ -221,8 +222,8 @@ $lightgreen : #b9e7e7;
                     gap: 30px;
 
                     img{
-                        width: 100%;
-                        height: 300px;
+                        width: 500px;
+                        height: 500px;
                         object-fit: cover;
 
                     }
